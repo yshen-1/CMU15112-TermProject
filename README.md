@@ -7,10 +7,10 @@ popping game. Bubbles are generated when the game time matches a beat timestamp
 from 'beats.txt', and consist of two layers: a visualization of the audio waveform at the time of bubble formation and the player's approximation of said visualization. To pop the bubbles, the player must match his/her bubble layer with the audio visualization using the sliders on the left that appear when a bubble is selected.
 
 #Dependency list
--Pyaudio
--Numpy
--Pygame
--Python 3
+1. Pyaudio
+2. Numpy
+3. Pygame
+4. Python 3
 
 #Installation Instructions:
 ##Python 3
