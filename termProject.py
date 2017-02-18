@@ -978,6 +978,7 @@ class fourierGame(object):
         textFileScaling=1/9
         self.textFileHeight=self.fileManager.get_height()*textFileScaling
         self.waveRectHeight=0
+        self.noFiles=True
     def setUpFileButton(self):
         self.buttonWidth=40
         self.buttonHeight=20
@@ -1177,14 +1178,16 @@ class fourierGame(object):
         self.drawManagerTitle()
         fileManagerBackground=(128,216,255)
         self.fileManager.fill(fileManagerBackground)
-        audioText=self.drawManagerRects()
-        #Draw file names
-        textFileText=self.gameFont.render(self.txtFile,1,(0,0,0))
+        if not self.noFiles:
+            audioText=self.drawManagerRects()
+            #Draw file names
+            textFileText=self.gameFont.render(self.txtFile,1,(0,0,0))
         fileManagerY=self.fileManagerTitle.get_height()
         self.gameScreen.blit(self.fileManager,(0,fileManagerY))
-        textFileTextY=(fileManagerY+self.textFileHeight/2-
+        if not self.noFiles:
+            textFileTextY=(fileManagerY+self.textFileHeight/2-
                        textFileText.get_height()/2)
-        self.gameScreen.blit(textFileText,(self.fileManager.get_width()/2,
+            self.gameScreen.blit(textFileText,(self.fileManager.get_width()/2,
                                            textFileTextY))
         numberOfAudioFiles=len(self.waveFiles)
         for i in range(numberOfAudioFiles):
@@ -1327,12 +1330,12 @@ class fourierGame(object):
 
     def fileManagerEvents(self,event,mouseX,mouseY):
         #File manager event handler
-        if event.type==pygame.MOUSEBUTTONUP:
+        if event.type==pygame.MOUSEBUTTONUP and not self.noFiles:
             textFileY=self.textFileHeight+self.fileManagerTitle.get_height()
             if mouseY>self.fileManagerTitle.get_height() and mouseY<textFileY:
                 self.gameMode="game"
                 self.gameInit()
-            elif mouseY>textFileY:
+            elif mouseY>textFileY and not self.noFiles:
                 y=mouseY-textFileY
                 index=int(y//self.waveRectHeight)
                 audioFile=self.waveFiles[index]
@@ -1430,8 +1433,12 @@ class fourierGame(object):
                 if fileExtension=='wav':
                     waveFiles.append(files)
         self.waveFiles=waveFiles
-        self.waveRectHeight=((self.fileManager.get_height()-self.textFileHeight)
+        if len(self.waveFiles)>0:
+            self.noFiles=False
+            self.waveRectHeight=((self.fileManager.get_height()-self.textFileHeight)
                               /len(self.waveFiles))
+        else:
+            self.noFiles=True
     def gameTimerFired(self):
         self.clock.tick(60)
         if not self.gameOver:
