@@ -13,18 +13,22 @@ from 'beats.txt', and consist of two layers: a visualization of the audio wavefo
 4. Python 3
 
 #Installation Instructions:
+
 ##Python 3
 1. Go to https://www.python.org/downloads/ and download the appropriate
    installation package.
+
 ## Pyaudio
 1. Run the command "pip3 install pyaudio". Administrator permission may be
    required for this step.
 2. On linux, if an error regarding "portaudio.h" appears, you may wish to
    install portaudio-dev.
+
 ## Numpy
 1. Run the command "pip3 install numpy". Administrator permission may be
    required for this step. For further information, consult
    https://www.scipy.org/scipylib/download.html.
+
 ## Pygame
 1. Run the command "pip3 install pygame". If this does not work, you may wish to
    download and install the appropriate .whl file from
