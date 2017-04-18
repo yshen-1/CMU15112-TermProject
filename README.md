@@ -1,4 +1,4 @@
-#Program Description
+# Program Description
 
 This program processes an audio .wav file and writes the timestamps associated
 with the beats in the file into the text file 'beats.txt'.
@@ -6,15 +6,15 @@ When the processing is finished, the player is given the option to play a bubble
 popping game. Bubbles are generated when the game time matches a beat timestamp
 from 'beats.txt', and consist of two layers: a visualization of the audio waveform at the time of bubble formation and the player's approximation of said visualization. To pop the bubbles, the player must match his/her bubble layer with the audio visualization using the sliders on the left that appear when a bubble is selected.
 
-#Dependency list
+# Dependency list
 1. Pyaudio
 2. Numpy
 3. Pygame
 4. Python 3
 
-#Installation Instructions:
+# Installation Instructions:
 
-##Python 3
+## Python 3
 1. Go to https://www.python.org/downloads/ and download the appropriate
    installation package.
 
@@ -34,13 +34,13 @@ from 'beats.txt', and consist of two layers: a visualization of the audio wavefo
    download and install the appropriate .whl file from
    https://www.lfd.uci.edu/~gohlke/pythonlibs/#pygame.
 
-##Overall Program
+## Overall Program
 1. Install all dependencies, as described above. Place 'background.jpg',
    'beats.txt', and 'termProject.py' in the same directory. 
 2. Place the .wav file you wish to process in the installation directory.
 3. Execute termProject.py and follow the instructions displayed within the
    program.
 
-#Video demo
+# Video demo
 'project-video.txt' contains a hyperlink to a youtube video demonstrating this
 program.
